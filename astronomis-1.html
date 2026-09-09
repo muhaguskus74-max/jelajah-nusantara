@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letak Astronomis</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:linear-gradient(135deg,#e3f2fd,#bbdefb);font-family:Arial,sans-serif;padding:30px 20px;min-height:100vh}
+        .container{background:#fff;border-radius:16px;padding:30px 25px;max-width:550px;margin:0 auto;box-shadow:0 4px 20px rgba(0,0,0,.1);animation:muncul .6s ease-out}
+        @keyframes muncul{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+        h1{color:#1565c0;font-size:24px;text-align:center;margin-bottom:25px}
+        .materi{font-size:16px;line-height:1.8;color:#333;margin-bottom:20px}
+        .kotak-info{background:#e3f2fd;border-left:4px solid #1976d2;padding:15px;border-radius:8px;margin:20px 0}
+        .btn{background:linear-gradient(135deg,#42a5f5,#1976d2);color:#fff;padding:12px 20px;font-size:16px;border:none;border-radius:10px;cursor:pointer;width:100%;margin-top:10px}
+        .btn-kembali{background:#f0f0f0;color:#333;margin-top:25px}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📍 LETAK ASTRONOMIS</h1>
+        <div class="materi">
+            <p><strong>Letak astronomis</strong> = posisi berdasarkan garis lintang & bujur.</p>
+            <div class="kotak-info">
+                <h3>Koordinat Indonesia:</h3>
+                <p><strong>Garis Lintang:</strong> 6° LU – 11° LS</p>
+                <p><strong>Garis Bujur:</strong> 95° BT – 141° BT</p>
+            </div>
+            <h3>Dampak:</h3>
+            <ul style="margin-left:20px;margin-top:10px">
+                <li>Beriklimat tropis</li>
+                <li>Matahari bersinar sepanjang tahun</li>
+                <li>Memiliki 2 musim: hujan & kemarau</li>
+                <li>Curah hujan cukup tinggi</li>
+            </ul>
+        </div>
+        <button class="btn btn-kembali" onclick="location.href='menu.html'">← Kembali ke Menu</button>
+    </div>
+</body>
+</html>

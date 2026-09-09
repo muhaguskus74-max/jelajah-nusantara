@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis Pemahaman</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:linear-gradient(135deg,#e3f2fd,#bbdefb);font-family:Arial,sans-serif;padding:30px 20px;min-height:100vh}
+        .container{background:#fff;border-radius:16px;padding:30px 25px;max-width:550px;margin:0 auto;box-shadow:0 4px 20px rgba(0,0,0,.1);animation:muncul .6s ease-out}
+        @keyframes muncul{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+        h1{color:#1565c0;font-size:22px;text-align:center;margin-bottom:25px}
+        .soal{font-size:16px;line-height:1.8;color:#333;margin-bottom:25px;padding-bottom:15px;border-bottom:1px dashed #ddd}
+        .pertanyaan{font-weight:bold;margin-bottom:12px;font-size:17px}
+        .pilihan{margin-left:20px;margin-bottom:8px;padding:8px;border-radius:6px;transition:.2s}
+        .pilihan:hover{background:#e3f2fd}
+        .btn{background:linear-gradient(135deg,#42a5f5,#1976d2);color:#fff;padding:14px 20px;font-size:16px;border:none;border-radius:10px;cursor:pointer;width:100%;margin-top:10px;font-weight:bold}
+        .btn:active{transform:scale(.97)}
+        .btn-kembali{background:#f0f0f0;color:#333;margin-top:25px;font-weight:normal}
+        .hasil{margin-top:25px;padding:20px;border-radius:12px;background:#e8f5e9;display:none;text-align:center}
+        .skor-besar{font-size:42px;font-weight:bold;color:#2e7d32;margin:10px 0}
+        .benar{color:green}
+        .emoji{font-size:50px;margin:10px 0}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📝 KUIS PEMAHAMAN</h1>
+        <div class="soal">
+            <div class="pertanyaan">1. Letak astronomis Indonesia adalah...</div>
+            <label class="pilihan"><input type="radio" name="q1" value="a"> 6° LU – 11° LS & 95° BT – 141° BT</label>
+            <label class="pilihan"><input type="radio" name="q1" value="b"> 0° LU – 10° LU & 90° BT – 100° BT</label>
+            <label class="pilihan"><input type="radio" name="q1" value="c"> 5° LS – 15° LS & 100° BT – 120° BT</label>
+        </div>
+        <div class="soal">
+            <div class="pertanyaan">2. Indonesia terletak di antara dua benua...</div>
+            <label class="pilihan"><input type="radio" name="q2" value="a"> Asia & Eropa</label>
+            <label class="pilihan"><input type="radio" name="q2" value="b"> Asia & Australia</label>
+            <label class="pilihan"><input type="radio" name="q2" value="c"> Australia & Amerika</label>
+        </div>
+        <div class="soal">
+            <div class="pertanyaan">3. Indonesia berada di jalur gunung berapi...</div>
+            <label class="pilihan"><input type="radio" name="q3" value="a"> Jalur Sutra</label>
+            <label class="pilihan"><input type="radio" name="q3" value="b"> Cincin Api Pasifik</label>
+            <label class="pilihan"><input type="radio" name="q3" value="c"> Garis Khatulistiwa</label>
+        </div>
+        <div class="soal">
+            <div class="pertanyaan">4. Dampak letak astronomis Indonesia adalah...</div>
+            <label class="pilihan"><input type="radio" name="q4" value="a"> Beriklimat tropis & punya 2 musim</label>
+            <label class="pilihan"><input type="radio" name="q4" value="b"> Sering terjadi gempa bumi</label>
+            <label class="pilihan"><input type="radio" name="q4" value="c"> Menjadi jalur perdagangan dunia</label>
+        </div>
+        <div class="soal">
+            <div class="pertanyaan">5. Letak geologis Indonesia berada di pertemuan lempeng...</div>
+            <label class="pilihan"><input type="radio" name="q5" value="a"> Eropa, Afrika, & Pasifik</label>
+            <label class="pilihan"><input type="radio" name="q5" value="b"> Indo-Australia, Eurasia, & Pasifik</label>
+            <label class="pilihan"><input type="radio" name="q5" value="c"> Amerika, Eurasia, & Hindia</label>
+        </div>
+        <button class="btn" onclick="cekJawaban()">✅ CEK HASIL KUIS</button>
+        <div class="hasil" id="hasil">
+            <div class="emoji" id="emojiHasil">🎉</div>
+            <h3>SKOR ANDA</h3>
+            <div class="skor-besar" id="skor">0/5</div>
+            <p id="pesanHasil">Selamat mencoba!</p>
+            <details style="text-align:left;background:#fff;padding:12px;border-radius:8px;margin-top:10px">
+                <summary style="cursor:pointer;font-weight:bold;color:#1565c0">📖 Kunci Jawaban</summary>
+                <div style="margin-top:10px;font-size:14px;line-height:1.8">
+                    <p><span class="benar">✓</span> 1. 6° LU – 11° LS & 95° BT – 141° BT</p>
+                    <p><span class="benar">✓</span> 2. Asia & Australia</p>
+                    <p><span class="benar">✓</span> 3. Cincin Api Pasifik</p>
+                    <p><span class="benar">✓</span> 4. Beriklimat tropis & punya 2 musim</p>
+                    <p><span class="benar">✓</span> 5. Indo-Australia, Eurasia, & Pasifik</p>
+                </div>
+            </details>
+        </div>
+        <button class="btn btn-kembali" onclick="location.href='menu.html'">← Kembali ke Menu</button>
+    </div>
+    <script>
+        function cekJawaban(){
+            let skor=0;
+            const jawaban={q1:'a',q2:'b',q3:'b',q4:'a',q5:'b'};
+            for(let i=1;i<=5;i++){
+                const p=document.querySelector('input[name="q'+i+'"]:checked');
+                if(p&&p.value===jawaban['q'+i]) skor++;
+            }
+            document.getElementById('skor').textContent=skor+'/5';
+            let emoji='🎉',pesan='Luar biasa!';
+            if(skor<=2){emoji='💪';pesan='Terus berlatih!';}
+            else if(skor<=4){emoji='👍';pesan='Bagus! Tinggal sedikit lagi!';}
+            document.getElementById('emojiHasil').textContent=emoji;
+            document.getElementById('pesanHasil').textContent=pesan;
+            document.getElementById('hasil').style.display='block';
+            document.getElementById('hasil').scrollIntoView({behavior:'smooth'});
+        }
+    </script>
+</body>
+</html>
